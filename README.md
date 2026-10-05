@@ -7,7 +7,7 @@ A sleek, 3D glassmorphism affiliate storefront built with Next.js. Features 8 th
 - 3D glassmorphism design
 - 8 themed sections
 - Swipe-friendly product scroller
-- Editable author dashboard via `?admin=true`
+- Editable author dashboard with password gating
 - Mobile responsive
 - Vercel-ready setup
 
@@ -22,16 +22,28 @@ Open http://localhost:3000
 
 ## Open admin editor
 
-Visit `http://localhost:3000/?admin=true`
+Use a password in the URL:
+
+```text
+http://localhost:3000/?admin=BombaySales99@2026
+```
+
+You can also set a custom password in Vercel environment variables:
+
+```text
+NEXT_PUBLIC_ADMIN_PASSWORD=your-secret-password
+```
 
 ## Deploy to Vercel
 
-1. Push this repo to GitHub
-2. Import into Vercel
-3. Deploy
+1. Push this repo to GitHub.
+2. Import into Vercel.
+3. Add environment variable `NEXT_PUBLIC_ADMIN_PASSWORD` in the project settings.
+4. Deploy.
 
 ## Notes
 
 - Replace the placeholder affiliate links and product image URLs.
 - Use the admin panel to update content in real time.
-- The site saves changes in the browser local storage.
+- The site stores edits locally in the browser for quick author updates.
+- For true cross-device real-time syncing to all visitors, add a backend like Supabase or Vercel KV.

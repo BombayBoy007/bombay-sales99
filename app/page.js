@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "bombay-sales99-storefront-v1";
+const DEFAULT_ADMIN_PASSWORD = "BombaySales99@2026";
+const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || DEFAULT_ADMIN_PASSWORD;
 
 const defaultData = {
   brand: "BomBay Sales99",
@@ -310,6 +312,7 @@ const defaultData = {
 export default function Page() {
   const [store, setStore] = useState(defaultData);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [adminMessage, setAdminMessage] = useState("");
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -322,8 +325,17 @@ export default function Page() {
       }
     }
 
-    const adminMode = new URLSearchParams(window.location.search).get("admin") === "true";
-    setIsAdmin(adminMode);
+    const params = new URLSearchParams(window.location.search);
+    const submittedPassword = params.get("admin");
+
+    if (submittedPassword) {
+      if (submittedPassword === ADMIN_PASSWORD) {
+        setIsAdmin(true);
+        setAdminMessage("Author dashboard unlocked.");
+      } else {
+        setAdminMessage("Access denied. This admin panel is restricted to the author.");
+      }
+    }
   }, []);
 
   useEffect(() => {
@@ -478,10 +490,15 @@ export default function Page() {
         </div>
       </footer>
 
+      {adminMessage && !isAdmin && (
+        <div className="admin-denied glass">{adminMessage}</div>
+      )}
+
       {isAdmin && (
         <div className="admin-panel glass">
           <h3>Author Dashboard</h3>
           <p>Only visible to the site owner. Updates reflect instantly.</p>
+          {adminMessage && <p className="admin-status">{adminMessage}</p>}
 
           <div className="admin-grid">
             <label>
