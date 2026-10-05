@@ -312,7 +312,9 @@ const defaultData = {
 export default function Page() {
   const [store, setStore] = useState(defaultData);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [adminMessage, setAdminMessage] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -320,27 +322,30 @@ export default function Page() {
       try {
         const parsed = JSON.parse(saved);
         setStore(parsed);
-      } catch {
-        // ignore invalid saved data
-      }
-    }
-
-    const params = new URLSearchParams(window.location.search);
-    const submittedPassword = params.get("admin");
-
-    if (submittedPassword) {
-      if (submittedPassword === ADMIN_PASSWORD) {
-        setIsAdmin(true);
-        setAdminMessage("Author dashboard unlocked.");
-      } else {
-        setAdminMessage("Access denied. This admin panel is restricted to the author.");
-      }
+      } catch {}
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
   }, [store]);
+
+  const handleAdminLogin = () => {
+    if (adminPassword === ADMIN_PASSWORD) {
+      setIsAdmin(true);
+      setShowAdminPanel(true);
+      setPasswordError("");
+      setAdminPassword("");
+    } else {
+      setPasswordError("Invalid password. Try again.");
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAdmin(false);
+    setShowAdminPanel(false);
+    setAdminPassword("");
+  };
 
   const updateSectionTitle = (sectionIndex, value) => {
     const copy = [...store.sections];
@@ -379,9 +384,21 @@ export default function Page() {
           <a href="#contact">Contact</a>
         </nav>
 
-        <a className="cta-mini" href={store.whatsapp} target="_blank" rel="noreferrer">
-          WhatsApp
-        </a>
+        <div className="topbar-actions">
+          <a className="cta-mini" href={store.whatsapp} target="_blank" rel="noreferrer">
+            WhatsApp
+          </a>
+          {!isAdmin && (
+            <button className="admin-btn" onClick={() => setShowAdminPanel(true)}>
+              Edit
+            </button>
+          )}
+          {isAdmin && (
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          )}
+        </div>
       </header>
 
       <main className="container">
@@ -490,17 +507,40 @@ export default function Page() {
         </div>
       </footer>
 
-      {adminMessage && !isAdmin && (
-        <div className="admin-denied glass">{adminMessage}</div>
+      {showAdminPanel && !isAdmin && (
+        <div className="admin-modal-overlay" onClick={() => setShowAdminPanel(false)}>
+          <div className="admin-login glass" onClick={(e) => e.stopPropagation()}>
+            <h3>Author Login</h3>
+            <p>Enter your password to edit the storefront</p>
+            <input
+              type="password"
+              placeholder="Enter admin password"
+              value={adminPassword}
+              onChange={(e) => setAdminPassword(e.target.value)}
+              onKeyPress={(e) => e.key === "Enter" && handleAdminLogin()}
+            />
+            {passwordError && <p className="error-msg">{passwordError}</p>}
+            <div className="modal-actions">
+              <button className="primary-btn" onClick={handleAdminLogin}>
+                Unlock Dashboard
+              </button>
+              <button className="ghost-btn" onClick={() => setShowAdminPanel(false)}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
-      {isAdmin && (
+      {isAdmin && showAdminPanel && (
         <div className="admin-panel glass">
-          <h3>Author Dashboard</h3>
-          <p>Only visible to the site owner. Updates reflect instantly.</p>
-          {adminMessage && <p className="admin-status">{adminMessage}</p>}
+          <div className="admin-header">
+            <h3>Edit Storefront</h3>
+            <button className="close-btn" onClick={handleLogout}>✕</button>
+          </div>
 
-          <div className="admin-grid">
+          <div className="admin-tabs">
+            <h4>📱 Site Settings</h4>
             <label>
               Brand Name
               <input
@@ -508,15 +548,6 @@ export default function Page() {
                 onChange={(e) => updateBrandField("brand", e.target.value)}
               />
             </label>
-
-            <label>
-              Tagline
-              <input
-                value={store.tagline}
-                onChange={(e) => updateBrandField("tagline", e.target.value)}
-              />
-            </label>
-
             <label>
               Hero Text
               <textarea
@@ -525,7 +556,6 @@ export default function Page() {
                 onChange={(e) => updateBrandField("heroText", e.target.value)}
               />
             </label>
-
             <label>
               Phone
               <input
@@ -533,23 +563,20 @@ export default function Page() {
                 onChange={(e) => updateBrandField("phone", e.target.value)}
               />
             </label>
-
             <label>
-              WhatsApp URL
+              WhatsApp Link
               <input
                 value={store.whatsapp}
                 onChange={(e) => updateBrandField("whatsapp", e.target.value)}
               />
             </label>
-
             <label>
-              Instagram URL
+              Instagram Link
               <input
                 value={store.instagram}
                 onChange={(e) => updateBrandField("instagram", e.target.value)}
               />
             </label>
-
             <label>
               Email
               <input
@@ -557,22 +584,15 @@ export default function Page() {
                 onChange={(e) => updateBrandField("email", e.target.value)}
               />
             </label>
-
-            <label>
-              Footer Disclaimer
-              <textarea
-                rows={3}
-                value={store.footerNote}
-                onChange={(e) => updateBrandField("footerNote", e.target.value)}
-              />
-            </label>
           </div>
 
-          <div className="admin-sections">
+          <div className="admin-products-section">
+            <h4>🛍️ Edit Products & Sections</h4>
             {store.sections.map((section, sectionIndex) => (
-              <div key={section.id} className="admin-section">
-                <label>
-                  Section Title
+              <div key={section.id} className="section-editor">
+                <h5>{section.title}</h5>
+                <label className="section-title-edit">
+                  Section Title:
                   <input
                     value={section.title}
                     onChange={(e) => updateSectionTitle(sectionIndex, e.target.value)}
@@ -581,6 +601,10 @@ export default function Page() {
 
                 {section.products.map((product, productIndex) => (
                   <div className="product-editor" key={product.id}>
+                    <div className="product-editor-header">
+                      <h6>Product {productIndex + 1}</h6>
+                    </div>
+
                     <label>
                       Product Name
                       <input
@@ -602,7 +626,7 @@ export default function Page() {
                     </label>
 
                     <label>
-                      Badge
+                      Badge (e.g., Hot, New, Top Pick)
                       <input
                         value={product.badge}
                         onChange={(e) =>
@@ -614,6 +638,8 @@ export default function Page() {
                     <label>
                       Product Image URL
                       <input
+                        type="url"
+                        placeholder="https://example.com/image.jpg"
                         value={product.image}
                         onChange={(e) =>
                           updateProduct(sectionIndex, productIndex, "image", e.target.value)
@@ -624,6 +650,8 @@ export default function Page() {
                     <label>
                       Affiliate Link
                       <input
+                        type="url"
+                        placeholder="https://amazon.in/..."
                         value={product.link}
                         onChange={(e) =>
                           updateProduct(sectionIndex, productIndex, "link", e.target.value)
@@ -632,7 +660,7 @@ export default function Page() {
                     </label>
 
                     <label>
-                      Product Description
+                      Description
                       <textarea
                         rows={2}
                         value={product.blurb}
@@ -641,6 +669,13 @@ export default function Page() {
                         }
                       />
                     </label>
+
+                    {product.image && (
+                      <div className="image-preview">
+                        <small>Preview:</small>
+                        <img src={product.image} alt={product.name} />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
