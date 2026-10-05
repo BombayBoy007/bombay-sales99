@@ -1,0 +1,52 @@
+{
+  "brand": "BomBaySales@99",
+  "tagline": "Go Bambaiya Way ...😎! Shop never Stop 🛑",
+  "heroText": "Bombay's street-smart affiliate shopping stop. Tap Get Now to visit the merchant.",
+  "phone": "",
+  "whatsapp": "",
+  "instagram": "",
+  "email": "",
+  "footerNote": "100% affiliate marketing storefront. Merchant checkout handles payment, shipping and fulfilment.",
+  "sections": [
+    {"id":"colaba-craze","title":"Colaba Craze","products":[
+      {"id":1,"name":"Colaba Pick 01","price":"Add price","badge":"Top Pick","image":"https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":2,"name":"Colaba Pick 02","price":"Add price","badge":"Hot","image":"https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":3,"name":"Colaba Pick 03","price":"Add price","badge":"New","image":"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."}
+    ]},
+    {"id":"churchgate-vibe","title":"Churchgate Vibe","products":[
+      {"id":4,"name":"Churchgate Pick 01","price":"Add price","badge":"Trending","image":"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":5,"name":"Churchgate Pick 02","price":"Add price","badge":"Classic","image":"https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":6,"name":"Churchgate Pick 03","price":"Add price","badge":"Fresh","image":"https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."}
+    ]},
+    {"id":"bhuleshwar-jewels","title":"Bhuleshwar Jewels","products":[
+      {"id":7,"name":"Bhuleshwar Jewel 01","price":"Add price","badge":"Featured","image":"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":8,"name":"Bhuleshwar Jewel 02","price":"Add price","badge":"Limited","image":"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":9,"name":"Bhuleshwar Jewel 03","price":"Add price","badge":"Best Seller","image":"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."}
+    ]},
+    {"id":"lamington-techs","title":"Lamington Techs","products":[
+      {"id":10,"name":"Lamington Tech 01","price":"Add price","badge":"Smart Buy","image":"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":11,"name":"Lamington Tech 02","price":"Add price","badge":"Popular","image":"https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":12,"name":"Lamington Tech 03","price":"Add price","badge":"Essentials","image":"https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."}
+    ]},
+    {"id":"dadar-deals","title":"Dadar Deals","products":[
+      {"id":13,"name":"Dadar Deal 01","price":"Add price","badge":"Daily Use","image":"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":14,"name":"Dadar Deal 02","price":"Add price","badge":"Sale","image":"https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":15,"name":"Dadar Deal 03","price":"Add price","badge":"Favourite","image":"https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."}
+    ]},
+    {"id":"bandra-buzz","title":"Bandra Buzz","products":[
+      {"id":16,"name":"Bandra Buzz 01","price":"Add price","badge":"Buzz","image":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":17,"name":"Bandra Buzz 02","price":"Add price","badge":"Style","image":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":18,"name":"Bandra Buzz 03","price":"Add price","badge":"Trend","image":"https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."}
+    ]},
+    {"id":"andheri-bazaar","title":"Andheri Bazaar","products":[
+      {"id":19,"name":"Andheri Bazaar 01","price":"Add price","badge":"Find","image":"https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":20,"name":"Andheri Bazaar 02","price":"Add price","badge":"Deal","image":"https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":21,"name":"Andheri Bazaar 03","price":"Add price","badge":"Pick","image":"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."}
+    ]},
+    {"id":"chembur-tote","title":"Chembur ToTe","products":[
+      {"id":22,"name":"Chembur Tote 01","price":"Add price","badge":"Everyday","image":"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":23,"name":"Chembur Tote 02","price":"Add price","badge":"Carry","image":"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."},
+      {"id":24,"name":"Chembur Tote 03","price":"Add price","badge":"New","image":"https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=900&q=85","link":"https://www.amazon.in/","blurb":"Replace with your product title, image URL and affiliate link."}
+    ]}
+  ]
+}
