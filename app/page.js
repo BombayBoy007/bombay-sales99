@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const STORAGE_KEY = "bombay-sales99-storefront-v1";
 const DEFAULT_ADMIN_PASSWORD = "BombaySales99@2026";
 const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || DEFAULT_ADMIN_PASSWORD;
+const GITHUB_EDIT_URL = "https://github.com/BombayBoy007/bombay-sales99/edit/main/public/data/store.json";
 
 const defaultData = {
   brand: "BomBay Sales99",
@@ -317,18 +318,11 @@ export default function Page() {
   const [showAdminPanel, setShowAdminPanel] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        setStore(parsed);
-      } catch {}
-    }
+    fetch("/data/store.json", { cache: "no-store" })
+      .then((response) => response.json())
+      .then((remoteStore) => setStore(remoteStore))
+      .catch(() => {});
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
-  }, [store]);
 
   const handleAdminLogin = () => {
     if (adminPassword === ADMIN_PASSWORD) {
@@ -389,9 +383,9 @@ export default function Page() {
             WhatsApp
           </a>
           {!isAdmin && (
-            <button className="admin-btn" onClick={() => setShowAdminPanel(true)}>
-              Edit
-            </button>
+            <a className="admin-btn" href={GITHUB_EDIT_URL} target="_blank" rel="noreferrer">
+              Edit Storefront
+            </a>
           )}
           {isAdmin && (
             <button className="logout-btn" onClick={handleLogout}>
@@ -404,7 +398,7 @@ export default function Page() {
       <main className="container">
         <section className="hero glass" id="featured">
           <div className="hero-copy">
-            <span className="eyebrow">Curated Mumbai finds</span>
+            <span className="eyebrow">{store.tagline || "Go Bambaiya Way ...😎! Shop never Stop 🛑"}</span>
             <h1>{store.brand}</h1>
             <p>{store.heroText}</p>
 
@@ -414,6 +408,9 @@ export default function Page() {
               </a>
               <a href={store.instagram} className="ghost-btn" target="_blank" rel="noreferrer">
                 Follow Us
+              </a>
+              <a href={GITHUB_EDIT_URL} className="ghost-btn" target="_blank" rel="noreferrer">
+                Owner Edit
               </a>
             </div>
 
@@ -476,8 +473,8 @@ export default function Page() {
 
                       <div className="product-meta">
                         <strong>{product.price}</strong>
-                        <a href={product.link} target="_blank" rel="noreferrer">
-                          Get Now
+                        <a href={product.link} target="_blank" rel="noreferrer sponsored">
+                          Get Now ↗
                         </a>
                       </div>
                     </div>
@@ -493,6 +490,7 @@ export default function Page() {
         <div className="footer-brand">
           <h3>{store.brand}</h3>
           <p>{store.footerNote}</p>
+          <p style={{fontWeight:900,color:"#fff"}}>THIS IS AN AFFILIATE MARKETING WEBSITE ONLY. PRODUCTS, ORDERS, PAYMENTS AND SHIPPING ARE HANDLED BY THE MERCHANT WEBSITE.</p>
         </div>
 
         <div className="footer-links">
