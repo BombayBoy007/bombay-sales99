@@ -71,7 +71,7 @@ export default function Page() {
       <a className="logo-link" href="#top" aria-label="BomBaySales home"><img src={store.logo || "/logo.png"} alt="BomBaySales@99" /></a>
       <nav><a href="#collections">Collections</a><a href="#contact">Contact</a></nav>
       <div className="nav-actions">
-        {admin ? <button className="owner-btn" onClick={() => setEditorOpen(true)}>Edit Storefront</button> : <button className="owner-login" onClick={() => setLoginOpen(true)}>Owner Login</button>}
+        {admin && <button className="owner-btn" onClick={() => setEditorOpen(true)}>Edit Storefront</button>}
       </div>
     </header>
 
