@@ -6,7 +6,7 @@ const DEFAULT_STORE = {
   brand: "BomBaySales@99",
   tagline: "Go Bambaiya Way ...😎! Shop never Stop 🛑",
   heroText: "Your Bombay-style affiliate storefront — discover a product, tap Get Now, and shop directly on the merchant website.",
-  logo: "/logo.png",
+  logo: "/logo.svg",
   phone: "",
   whatsapp: "",
   instagram: "",
@@ -68,7 +68,7 @@ export default function Page() {
 
   return <div className="site">
     <header className="nav glass">
-      <a className="logo-link" href="#top" aria-label="BomBaySales home"><img src={store.logo || "/logo.png"} alt="BomBaySales@99" /></a>
+      <a className="logo-link" href="#top" aria-label="BomBaySales home"><img src={store.logo || "/logo.svg"} alt="BomBaySales@99" /></a>
       <nav><a href="#collections">Collections</a><a href="#contact">Contact</a></nav>
       <div className="nav-actions">
         {admin && <button className="owner-btn" onClick={() => setEditorOpen(true)}>Edit Storefront</button>}
@@ -78,7 +78,7 @@ export default function Page() {
     <main id="top">
       <section className="hero glass">
         <div className="hero-copy"><span className="eyebrow">100% Affiliate Storefront</span><h1>{store.tagline}</h1><p>{store.heroText}</p><div className="hero-actions"><a className="primary" href="#collections">Shop Collections</a>{store.whatsapp && <a className="secondary" href={store.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>}</div></div>
-        <div className="hero-logo"><img src={store.logo || "/logo.png"} alt="BomBaySales@99 logo" /></div>
+        <div className="hero-logo"><img src={store.logo || "/logo.svg"} alt="BomBaySales@99 logo" /></div>
       </section>
 
       <section id="collections" className="collections">
@@ -88,7 +88,7 @@ export default function Page() {
       </section>
     </main>
 
-    <footer id="contact" className="footer glass"><div><img src={store.logo || "/logo.png"} alt="BomBaySales@99"/><p>{store.footerNote}</p><p className="disclaimer">THIS IS AN AFFILIATE MARKETING WEBSITE ONLY. PRODUCTS, ORDERS, PAYMENTS AND SHIPPING ARE HANDLED BY THE MERCHANT WEBSITE.</p></div><div className="contact-links">{store.phone && <a href={`tel:${store.phone}`}>{store.phone}</a>}{store.whatsapp && <a href={store.whatsapp}>WhatsApp</a>}{store.instagram && <a href={store.instagram}>Instagram</a>}{store.email && <a href={`mailto:${store.email}`}>{store.email}</a>}</div></footer>
+    <footer id="contact" className="footer glass"><div><img src={store.logo || "/logo.svg"} alt="BomBaySales@99"/><p>{store.footerNote}</p><p className="disclaimer">THIS IS AN AFFILIATE MARKETING WEBSITE ONLY. PRODUCTS, ORDERS, PAYMENTS AND SHIPPING ARE HANDLED BY THE MERCHANT WEBSITE.</p></div><div className="contact-links">{store.phone && <a href={`tel:${store.phone}`}>{store.phone}</a>}{store.whatsapp && <a href={store.whatsapp}>WhatsApp</a>}{store.instagram && <a href={store.instagram}>Instagram</a>}{store.email && <a href={`mailto:${store.email}`}>{store.email}</a>}</div></footer>
 
     {loginOpen && <div className="overlay" onClick={() => setLoginOpen(false)}><div className="login glass" onClick={(e) => e.stopPropagation()}><h2>Owner Access</h2><p>Password required to edit the storefront.</p><input type="password" autoFocus value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === "Enter" && login()} placeholder="Owner password"/><button className="primary wide" onClick={login} disabled={busy}>{busy ? "Checking…" : "Unlock"}</button>{message && <p className="status">{message}</p>}</div></div>}
 
