@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<title id="title">BomBaySales@99</title><desc id="desc">BombaySales 99 colorful 3D style logo</desc>
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#38c8ff"/><stop offset=".48" stop-color="#7b4dff"/><stop offset="1" stop-color="#ff25b9"/></linearGradient>
+ <linearGradient id="word" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ff38bd"/><stop offset=".52" stop-color="#f6f3ff"/><stop offset=".72" stop-color="#25caff"/><stop offset="1" stop-color="#ffb01a"/></linearGradient>
+ <linearGradient id="depth" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5c176f"/><stop offset=".5" stop-color="#132f76"/><stop offset="1" stop-color="#783300"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-40%" width="160%" height="190%"><feDropShadow dx="0" dy="18" stdDeviation="12" flood-opacity=".55"/></filter>
+</defs>
+<rect width="1200" height="360" rx="52" fill="#07101d"/>
+<path d="M38 278H1162" stroke="#20c9ff" stroke-width="5" opacity=".35"/>
+<g transform="translate(55 62)">
+ <path d="M0 220h230v-92h-20V90h-28v38h-18V76h-34v52h-18V98h-30v30h-18v92z" fill="#f3aa42" stroke="#8a4c22" stroke-width="7"/>
+ <path d="M35 220v-58h44v58M170 220v-58h44v58M91 220v-76h68v76" fill="#ffe18a" stroke="#8a4c22" stroke-width="7"/>
+ <path d="M100 144v-48h50v48" fill="#fff0b0" stroke="#8a4c22" stroke-width="7"/>
+ <path d="M110 96l15-28 15 28" fill="#f3aa42" stroke="#8a4c22" stroke-width="7"/>
+ <circle cx="125" cy="48" r="20" fill="#ffd75a" stroke="#ff9e16" stroke-width="8"/>
+</g>
+<g transform="translate(315 105)" filter="url(#shadow)">
+ <text x="0" y="0" font-family="Arial,Helvetica,sans-serif" font-size="142" font-weight="900" dominant-baseline="hanging" fill="url(#depth)" stroke="#30105d" stroke-width="20" stroke-linejoin="round">BomBaySales<tspan fill="#ff9d08">@99</tspan></text>
+ <text x="0" y="-14" font-family="Arial,Helvetica,sans-serif" font-size="142" font-weight="900" dominant-baseline="hanging" fill="url(#word)" stroke="#f8f8ff" stroke-width="8" stroke-linejoin="round">BomBaySales<tspan fill="#ffb21a">@99</tspan></text>
+</g>
+<text x="322" y="312" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="7" fill="#b9c8e8">GO BAMBAYYA WAY • SHOP NEVER STOP</text>
+</svg>
