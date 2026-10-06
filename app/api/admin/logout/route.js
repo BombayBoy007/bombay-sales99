@@ -1,0 +1,2 @@
+import {NextResponse} from "next/server";import {cookieHeader} from "../../../../lib/session";
+export async function POST(){const r=NextResponse.json({ok:true});r.headers.set("Set-Cookie",cookieHeader("",0));return r}
