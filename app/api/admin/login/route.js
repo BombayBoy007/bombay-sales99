@@ -1,2 +1,2 @@
-import {NextResponse} from "next/server";import {cookieHeader,makeSession} from "../../../../lib/session";
+import {NextResponse} from "next/server";import {cookieHeader,makeSession} from "../../../lib/session";
 export async function POST(request){const {password}=await request.json().catch(()=>({}));if(!process.env.ADMIN_PASSWORD||password!==process.env.ADMIN_PASSWORD)return NextResponse.json({error:"Invalid password"},{status:401});const r=NextResponse.json({ok:true});r.headers.set("Set-Cookie",cookieHeader(makeSession()));return r}
