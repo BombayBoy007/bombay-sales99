@@ -1,4 +1,4 @@
-import {NextResponse} from "next/server";import {isAdmin} from "../../../../lib/session";
+import {NextResponse} from "next/server";import {isAdmin} from "../../../lib/session";
 export const dynamic="force-dynamic";export const revalidate=0;
 const RAW="https://raw.githubusercontent.com/BombayBoy007/bombay-sales99/main/public/data/store.json";const API="https://api.github.com/repos/BombayBoy007/bombay-sales99/contents/public/data/store.json";
 const gh=()=>({Accept:"application/vnd.github+json",Authorization:"Bearer "+process.env.GITHUB_TOKEN,"X-GitHub-Api-Version":"2022-11-28"});
